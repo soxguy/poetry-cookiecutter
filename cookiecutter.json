@@ -8,6 +8,9 @@
   "project_url": "https://github.com/user/my-{{ cookiecutter.project_type }}",
   "author_name": "John Smith",
   "author_email": "john@example.com",
+  "docker_image": "python:$PYTHON_VERSION-slim",
+  "with_zscaler_cert": "1",
+  "development_environment": ["simple", "strict"],
   "python_version": "{% if cookiecutter.project_type == 'app' %}3.12{% else %}3.10{% endif %}",
   "development_environment": [
     "simple",

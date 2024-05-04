@@ -20,22 +20,21 @@
                 "ms-toolsai.jupyter",
                 "ryanluker.vscode-coverage-gutters",
                 "tamasfe.even-better-toml",
-                "visualstudioexptteam.vscodeintellicode"
             ],
             "settings": {
                 "coverage-gutters.coverageFileNames": [
                     "reports/coverage.xml"
                 ],
                 "editor.codeActionsOnSave": {
-                    "source.fixAll": true,
-                    "source.organizeImports": true
+                    "source.fixAll": "explicit",
+                    "source.organizeImports": "explicit"
                 },
-                "editor.formatOnSave": true,
+                "editor.formatOnSave": "explicit",
                 "[python]": {
                     "editor.defaultFormatter": "charliermarsh.ruff"
                 },
                 "[toml]": {
-                    "editor.formatOnSave": false
+                    "editor.formatOnSave": "explicit"
                 },
                 "editor.rulers": [
                     100

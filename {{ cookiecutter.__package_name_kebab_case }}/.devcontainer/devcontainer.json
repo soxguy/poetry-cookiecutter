@@ -20,6 +20,8 @@
                 "ms-toolsai.jupyter",
                 "ryanluker.vscode-coverage-gutters",
                 "tamasfe.even-better-toml",
+                "GitHub.copilot-chat",
+                "GitHub.copilot"
             ],
             "settings": {
                 "coverage-gutters.coverageFileNames": [

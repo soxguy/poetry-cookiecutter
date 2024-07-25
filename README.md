@@ -1,14 +1,12 @@
 [![Open in Dev Containers](https://img.shields.io/static/v1?label=Dev%20Containers&message=Open&color=blue&logo=visualstudiocode)](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/radix-ai/poetry-cookiecutter) [![Open in GitHub Codespaces](https://img.shields.io/static/v1?label=GitHub%20Codespaces&message=Open&color=blue&logo=github)](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=444870763)
 
-# Poetry Cookiecutter
+# 🍪 Poetry Cookiecutter
 
 A modern [Cookiecutter](https://github.com/cookiecutter/cookiecutter) template for scaffolding Python packages and apps.
 
 ## 🍿 Demo
 
-See [My Package](https://github.com/radix-ai/my-package) for an example of a Python package and app that is scaffolded with this template.
-
-Starting development in My Package can be done with a single click by [opening My Package in GitHub Codespaces](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=450509735), or [opening My Package in a Dev Container](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/radix-ai/my-package).
+See 👖 [Conformal Tights](https://github.com/radix-ai/conformal-tights) for an example of a Python package that is scaffolded with this template. Contributing to this package can be done with a single click by [starting a GitHub Codespace](https://github.com/codespaces/new?hide_repo_select=true&ref=main&repo=765698489&skip_quickstart=true) or [starting a Dev Container](https://vscode.dev/redirect?url=vscode://ms-vscode-remote.remote-containers/cloneInVolume?url=https://github.com/radix-ai/conformal-tights).
 
 ## 🎁 Features
 
@@ -34,25 +32,41 @@ Starting development in My Package can be done with a single click by [opening M
 To create a new Python project with this template:
 
 1. Install the latest [Cruft](https://github.com/cruft/cruft) and [Cookiecutter](https://github.com/cookiecutter/cookiecutter) in your [Python environment](https://github.com/pyenv/pyenv-virtualenv) with:
+
    ```sh
    pip install --upgrade "cruft>=2.12.0" "cookiecutter>=2.1.1"
    ```
-2. Create a new repository for your Python project, then clone it locally.
+
+2. [Create a new repository](https://github.com/new) for your Python project, then clone it locally.
 3. Run the following command in the parent directory of the cloned repository to apply the Poetry Cookiecutter template:
+
    ```sh
    cruft create -f https://github.com/radix-ai/poetry-cookiecutter
    ```
-4. _Optional:_ if your repository name differs from your project's slugified package name (see `package_name` in the [Template parameters](https://github.com/radix-ai/poetry-cookiecutter#-template-parameters) below), you will need to copy the scaffolded project into the repository with:
-   ```sh
-   cp -r {package-name}/ {repository-name}/
-   ```
+
+   <details>
+
+   <summary>⚠️ If your repository name ≠ the project's slugified name</summary>
+
+   If your repository name differs from your project's slugified name (see `project_name` in the [Template parameters](https://github.com/radix-ai/poetry-cookiecutter#-template-parameters) below), you will need to copy the scaffolded project into the repository with:
+
+      ```sh
+      cp -r {project-name}/ {repository-name}/
+      ```
+
+   </details>
 
 ### Updating your Python project
 
-To update your Python project with the latest template:
+To update your Python project to the latest template version:
 
-1. Run `cruft update` to update your project with the latest template.
-2. If any of the updates failed, resolve them by inspecting the generated `.rej` files.
+1. Update the project while verifying the existing template parameters and setting any new parameters, if there are any:
+
+   ```sh
+   cruft update --cookiecutter-input
+   ```
+
+2. If any of the file updates failed, resolve them by inspecting the corresponding `.rej` files.
 
 ## 🤓 Template parameters
 

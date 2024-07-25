@@ -1,5 +1,5 @@
 {
-    "name": "{{ cookiecutter.__package_name_kebab_case }}",
+    "name": "{{ cookiecutter.__project_name_kebab_case }}",
     "dockerComposeFile": "../docker-compose.yml",
     "service": "devcontainer",
     "workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}/",
@@ -15,6 +15,12 @@
         "vscode": {
             "extensions": [
                 "charliermarsh.ruff",
+                {%- if cookiecutter.continuous_integration == "GitHub" %}
+                "GitHub.vscode-github-actions",
+                "GitHub.vscode-pull-request-github",
+                {%- elif cookiecutter.continuous_integration == "GitLab" %}
+                "GitLab.gitlab-workflow",
+                {%- endif %}
                 "ms-python.mypy-type-checker",
                 "ms-python.python",
                 "ms-toolsai.jupyter",
@@ -44,8 +50,12 @@
                 "files.autoSave": "onFocusChange",
                 "jupyter.kernels.excludePythonEnvironments": ["/usr/local/bin/python"],
                 "mypy-type-checker.importStrategy": "fromEnvironment",
+                "notebook.codeActionsOnSave": {
+                    "notebook.source.fixAll": "explicit",
+                    "notebook.source.organizeImports": "explicit"
+                },
                 "notebook.formatOnSave.enabled": true,
-                "python.defaultInterpreterPath": "/opt/{{ cookiecutter.__package_name_kebab_case }}-env/bin/python",
+                "python.defaultInterpreterPath": "/opt/{{ cookiecutter.__project_name_kebab_case }}-env/bin/python",
                 "python.terminal.activateEnvironment": false,
                 "python.testing.pytestEnabled": true,
                 "ruff.importStrategy": "fromEnvironment",

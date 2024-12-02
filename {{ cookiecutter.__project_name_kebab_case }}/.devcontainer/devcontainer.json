@@ -50,6 +50,7 @@
                 "files.autoSave": "onFocusChange",
                 "jupyter.kernels.excludePythonEnvironments": ["/usr/local/bin/python"],
                 "mypy-type-checker.importStrategy": "fromEnvironment",
+                "mypy-type-checker.preferDaemon": true,
                 "notebook.codeActionsOnSave": {
                     "notebook.source.fixAll": "explicit",
                     "notebook.source.organizeImports": "explicit"
@@ -60,7 +61,7 @@
                 "python.testing.pytestEnabled": true,
                 "ruff.importStrategy": "fromEnvironment",
                 {%- if cookiecutter.development_environment == "strict" %}
-                "ruff.logLevel": "warn",
+                "ruff.logLevel": "warning",
                 {%- endif %}
                 "terminal.integrated.defaultProfile.linux": "zsh",
                 "terminal.integrated.profiles.linux": {

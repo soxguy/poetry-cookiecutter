@@ -9,8 +9,8 @@ RUN rm /etc/apt/apt.conf.d/docker-clean
 # Configure Python to print tracebacks on crash [1], and to not buffer stdout and stderr [2].
 # [1] https://docs.python.org/3/using/cmdline.html#envvar-PYTHONFAULTHANDLER
 # [2] https://docs.python.org/3/using/cmdline.html#envvar-PYTHONUNBUFFERED
-ENV PYTHONFAULTHANDLER 1
-ENV PYTHONUNBUFFERED 1
+ENV PYTHONFAULTHANDLER=1
+ENV PYTHONUNBUFFERED=1
 {%- endif %}
 
 {%- if cookiecutter.with_zscaler_cert|int %}
@@ -29,8 +29,8 @@ RUN groupadd --gid $GID user && \
 USER user
 
 # Create and activate a virtual environment.
-ENV VIRTUAL_ENV /opt/{{ cookiecutter.__project_name_kebab_case }}-env
-ENV PATH $VIRTUAL_ENV/bin:$PATH
+ENV VIRTUAL_ENV=/opt/{{ cookiecutter.__project_name_kebab_case }}-env
+ENV PATH=$VIRTUAL_ENV/bin:$PATH
 RUN python -m venv $VIRTUAL_ENV
 
 # Set the working directory.
@@ -38,7 +38,7 @@ WORKDIR /workspaces/{{ cookiecutter.__project_name_kebab_case }}/
 
 
 
-FROM base as poetry
+FROM base AS poetry
 
 USER root
 
@@ -70,7 +70,7 @@ RUN --mount=type=cache,uid=$UID,gid=$GID,target=/home/user/.cache/pypoetry/ \
 
 
 
-FROM poetry as dev
+FROM poetry AS dev
 
 # Install development tools: curl, git, gpg, ssh, starship, sudo, vim, and zsh.
 USER root
@@ -98,7 +98,7 @@ RUN mkdir -p /opt/build/poetry/ && cp poetry.lock /opt/build/poetry/ && \
     mkdir -p /opt/build/git/ && cp .git/hooks/commit-msg .git/hooks/pre-commit /opt/build/git/
 
 # Configure the non-root user's shell.
-ENV ANTIDOTE_VERSION 1.8.6
+ENV ANTIDOTE_VERSION=1.8.6
 RUN git clone --branch v$ANTIDOTE_VERSION --depth=1 https://github.com/mattmc3/antidote.git ~/.antidote/ && \
     echo 'zsh-users/zsh-syntax-highlighting' >> ~/.zsh_plugins.txt && \
     echo 'zsh-users/zsh-autosuggestions' >> ~/.zsh_plugins.txt && \
